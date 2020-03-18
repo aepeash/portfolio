@@ -404,4 +404,11 @@ h1 .text-shadow{
     p{
         font-size: 15px;
     }
+    .parallax{
+        -moz-background-size: auto;
+        -webkit-background-size: auto;
+        background-attachment: scroll;
+        background-position: top;
+        background-size: auto;
+    }
 }
