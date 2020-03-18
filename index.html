@@ -41,7 +41,9 @@
 <h3> Hi all, my name is alannah, and welcome to my site.</h3>
 
 <div class="parallax" id="img-1">
-
+<div class="mobile-img">
+    <img src="images/alannah-hall.JPG" alt="alannah jumping">
+</div>
 </div>
 <h2>Background</h2>
 <h3>A bit about myself</h3>
@@ -55,13 +57,16 @@ learned about business and IT, and the importance of linking technology with a c
 purpose, or else it is useless.</p>
 
 <div class="flip-cards">
+    <!-- with help from
+    https://davidwalsh.name/css-flip
+    and https://www.w3schools.com/howto/howto_css_flip_card.asp-->
 <div class="image-flip-container">
     <div class="image-flip">
         <div class="front">
             <img src="images/coffee-shop.jpg" alt="alannah at a coffee shop">
         </div>
         <div class="back">
-            <h2>Me at a coffee shop</h2>
+            <p>Me at a coffee shop</p>
             <p>Big ups to my bestie robert for the photo</p>
         </div>
     </div>
@@ -92,25 +97,35 @@ Upon graduation I want to pursue a career in product management or project manag
 </p>
 <h2>lets connect</h2>
 <div class="contact-form">
-            <form action="mailto:aepeash@umich.edu" method="post"
-                  enctype="text/plain">
-                <label for="f-name">First Name</label>
-                <br>
-                <input type="text" id="f-name" name="firstname"
-                       placeholder="Your first name">
-                <label for="f-name">Last Name</label>
-                <br>
-                <input type="text" id="l-name" name="lastname"
-                       placeholder="Your last name">
-                <label for="email">Email</label>
-                <br>
-                <input type="email" id="email" name="useremail"
-                       placeholder="Your email">
-                <label for="subject">Subject</label>
-                <br>
-                <textarea id="subject" name="subject" placeholder="Message subject"
-                          ></textarea>
-                <input type = "submit" value = "Submit!">
+    <!-- from:https://formspree.io/forms/xwkqqpnr/integration -->
+            <form action="https://formspree.io/xwkqqpnr" method="POST">
+                <div id="name">
+                <label>
+                    Your Name:
+                    <div id="name-input">
+                    <input type="text" name="name">
+                    </div>
+                </label>
+                </div>
+                    <div id="email">
+                <label>
+                    Your email:
+                    <div id="email-input">
+                    <input type="text" name="_replyto">
+                    </div>
+                </label>
+                    </div>
+                <div id="message">
+                <label>
+                    Your message:
+                    <div id="message-input">
+                    <textarea name="message"></textarea>
+                    </div>
+                </label>
+                </div>
+                <div id="form-btn">
+                <button type="submit">Send</button>
+                </div>
             </form>
 </div>
 <footer>
