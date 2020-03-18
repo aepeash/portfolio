@@ -183,24 +183,6 @@ from:https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_a
     to {
         margin-left: 0%;
         width: 100%;
-    } }
-
-
-@media screen and (prefers-reduced-motion: reduce) {
-    .hobbies-title h1{
-        -webkit-animation-name: none;
-        -webkit-animation: none;
-        animation: none;
-    }
-    .gallery img:hover {
-        border: none;
-    }
-    html{
-        scroll-behavior: auto;
-    }
-    .skip a{
-        -webkit-transition: none;
-        transition: none;
     }
 }
 .flex-container {
@@ -209,7 +191,7 @@ from:https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_a
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-
+    overflow: hidden;
     }
 .flex-container  div {
     width: 700px;
@@ -236,14 +218,13 @@ from:https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_a
     height: 300px;
     background-image: url("../images/oakland-friends.jpg");
 }
-.mobile-img{
-    visibility: hidden;
-}
 /* card flip with help from
     https://davidwalsh.name/css-flip
     and https://www.w3schools.com/howto/howto_css_flip_card.asp */
 .flip-cards{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, auto);
     justify-content: center;
     align-items: center;
 }
@@ -266,7 +247,10 @@ from:https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_a
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: lightblue;
 }
-.image-flip-container:hover .image-flip, .image-flip-container:hover .image-flip{
+.image-flip:focus{
+    transform: rotateY(180deg);
+}
+.image-flip-container:hover .image-flip, .image-flip-container:focus .image-flip{
     transform: rotateY(180deg);
     }
 .image-flip-container:focus .image-flip, .image-flip-container:focus .image-flip{
@@ -448,11 +432,36 @@ textarea{
         width: 200px;
         height: 200px;
     }
-    /* from:https://inkplant.com/code/responsive-parallax-images */
-    .parallax{
-        background-attachment: inherit;
-    }
     .flex-container  div {
-        width: 400px;
+        width: 500px;
     }
+    .parallax{
+
+        background-position: center;
+    }
+}
+@media screen and (prefers-reduced-motion: reduce) {
+    .hobbies-title h1{
+        -webkit-animation-name: none;
+        -webkit-animation: none;
+        animation: none;
+    }
+    .gallery img:hover {
+        border: none;
+    }
+    html{
+        scroll-behavior: auto;
+    }
+
+    .skip a{
+        -webkit-transition: none;
+        transition: none;
+    }
+    .parallax{
+        background-attachment: scroll;
+    }
+    .image-flip-container:hover .image-flip, .image-flip-container:hover .image-flip{
+        transform: none;
+    }
+
 }
