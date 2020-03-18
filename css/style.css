@@ -209,6 +209,7 @@ from:https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_a
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+    overflow: hidden;
     }
 .flex-container  div {
     width: 700px;
