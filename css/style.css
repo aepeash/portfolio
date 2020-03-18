@@ -401,4 +401,7 @@ h1 .text-shadow{
     .hobbies-title h1{
         -webkit-animation-name: none;
     }
+    p{
+        font-size: 15px;
+    }
 }
