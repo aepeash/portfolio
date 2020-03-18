@@ -1,7 +1,6 @@
 
 body{
     background-color: #cccccc;
-    font-size: 18px;
     margin: 0;
     padding: 0;
 } /*this needs to be updated */
@@ -23,9 +22,9 @@ h2{
     text-align: center;
 }
 p{
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
-    padding: 20px;
+    padding: 5px;
 }
 header{
     background-color: darksalmon;
@@ -62,10 +61,14 @@ footer{
     padding-top: 30px;
     text-align: center;
 }
+footer p {
+    font-size: 20px;
+    padding: 5px;
+}
 .skip a{
-    background: white;
+    background: #cccccc;
     left: 0;
-    padding: 6px;
+    padding: 10px;
     -webkit-transition: top 1s ease-out;
     transition: top 1s ease-out;
     z-index: 1;
@@ -76,12 +79,6 @@ footer{
     margin: 0;
     padding: 0;
 }
-.coffee-shop img{
-        display: block;
-        margin: auto;
-        height: 100px;
-}
-
 .gallery  {
     display: flex;
     flex-wrap: wrap;
@@ -99,11 +96,11 @@ footer{
     border: solid;
 }
 #img3, #img7{
-        transform: rotate(90deg);
+    transform: rotate(90deg);
     }
 div.desc {
-        padding: 15px;
-        text-align: center;
+    padding: 15px;
+    text-align: center;
     }
 
 .container{
@@ -175,6 +172,8 @@ div.desc {
     height: 300px;
     width: 300px;
 }
+/* css animation
+from:https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations*/
 @-webkit-keyframes slidein {
     from {
         margin-left: 100%;
@@ -192,6 +191,16 @@ div.desc {
         -webkit-animation-name: none;
         -webkit-animation: none;
         animation: none;
+    }
+    .gallery img:hover {
+        border: none;
+    }
+    html{
+        scroll-behavior: auto;
+    }
+    .skip a{
+        -webkit-transition: none;
+        transition: none;
     }
 }
 .flex-container {
@@ -211,15 +220,14 @@ div.desc {
     height: 470px;
     width: 260px;
 }
+/* with help from: https://www.w3schools.com/howto/howto_css_parallax.asp */
 .parallax{
-
     height: 400px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    }
+}
 #img-1{
     background-image: url("../images/clare-lauren-and-i.JPG");
 }
@@ -227,6 +235,12 @@ div.desc {
     height: 300px;
     background-image: url("../images/oakland-friends.jpg");
 }
+.mobile-img{
+    visibility: hidden;
+}
+/* card flip with help from
+    https://davidwalsh.name/css-flip
+    and https://www.w3schools.com/howto/howto_css_flip_card.asp */
 .flip-cards{
     display: flex;
     justify-content: center;
@@ -251,12 +265,12 @@ div.desc {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: lightblue;
 }
-.image-flip-container:hover .image-flip, .image-flip-container:hover .image-flip,
-.image-flip-container:focus .image-flip, .image-flip-container:focus .image-flip{
+.image-flip-container:hover .image-flip, .image-flip-container:hover .image-flip{
     transform: rotateY(180deg);
     }
-
-
+.image-flip-container:focus .image-flip, .image-flip-container:focus .image-flip{
+    transform: rotateY(180deg);
+}
 .front, .back {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -268,8 +282,11 @@ div.desc {
     z-index: 2;
 }
 .front img, .back img {
-    width: 300px;
-    height: 300px;
+     width: 300px;
+     height: 300px;
+ }
+.front:focus img, .back:focus img {
+    transform: rotateY(180deg);
 }
 .back {
     background-color: lightblue;
@@ -278,14 +295,15 @@ div.desc {
 p .back {
     text-align: center;
 }
+/* text shadow from:https://cssnewbie.com/10-beautiful-css-text-effects/#.XYbceJNKjOR */
 h1 .text-shadow{
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
     font-size: 92px;
     padding: 80px 50px;
     text-align: center;
     text-transform: uppercase;
-    text-rendering: optimizeLegibility;}
-
+    text-rendering: optimizeLegibility;
+}
 .text-shadow {
     color: #131313;
     background-color: #cccccc;
@@ -321,16 +339,33 @@ h1 .text-shadow{
             -27px 54px 1px #e2e0df,
             -28px 56px 1px #e4e3e2;
      }
-.contact-form form{
+form{
+    padding: 10px;
+}
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    row-gap: 50px;
+    column-gap: 40px;
     justify-content: center;
 }
-.contact-form input{
-    display: grid;
-    grid-template-columns: 700px;
-    grid-template-rows: repeat(5, auto);
-    row-gap: 40px;
+#email{
+    grid-row: 2 / span 1;
 }
-
+#name{
+    grid-row: 1/span 1;
+}
+#message{
+    grid-row: 3/span 1;
+}
+#form-btn{
+    grid-row: 4/span 1;
+}
+textarea{
+    height: 200px;
+    width: 400px;
+}
 @media only screen and (min-width: 850px){
     .container{
 
@@ -404,11 +439,16 @@ h1 .text-shadow{
     p{
         font-size: 15px;
     }
+    .image-flip-container{
+        height: 200px;
+        width: 200px;
+    }
+    .front img, .back img {
+        width: 200px;
+        height: 200px;
+    }
+    /* from:https://inkplant.com/code/responsive-parallax-images */
     .parallax{
-        -moz-background-size: auto;
-        -webkit-background-size: auto;
-        background-attachment: scroll;
-        background-position: top;
-        background-size: auto;
+        background-attachment: inherit;
     }
 }
