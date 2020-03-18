@@ -452,4 +452,7 @@ textarea{
     .parallax{
         background-attachment: inherit;
     }
+    .flex-container  div {
+        width: 500px;
+    }
 }
