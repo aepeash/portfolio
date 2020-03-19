@@ -405,6 +405,9 @@ textarea{
     .link-items{
         padding: 10px;
     }
+    .flip-cards .image-flip-container{
+        padding: 40px 40px 40px 90px;
+    }
     }
 
 
