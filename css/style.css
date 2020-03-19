@@ -3,7 +3,7 @@ body{
     background-color: #cccccc;
     margin: 0;
     padding: 0;
-} /*this needs to be updated */
+} 
 
 h1{
     font-size: 55px;
@@ -350,6 +350,9 @@ form{
 textarea{
     height: 200px;
     width: 400px;
+}
+#name input, #email input{
+    margin-left: 140px;
 }
 @media only screen and (min-width: 850px){
     .container{
