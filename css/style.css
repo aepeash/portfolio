@@ -436,7 +436,7 @@ textarea{
         width: 500px;
     }
     .parallax{
-
+        background-attachment: scroll;
         background-position: center;
     }
 }
